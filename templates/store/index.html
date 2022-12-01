@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block name %}Restrung - Buy & Sell Guitars{% endblock %}
+{% block content %}
+
+
+<main style="background-color: #F5F5F5;">
+    <section class="py-5 text-center container" style="background-color: #FFBF00; margin-top: 15px">
+      <div class="row py-lg-3">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="h1 fw-bold">New strings, on us.</h1>
+          <p class="lead text">Made by guitarists, for guitarists. We know you want that new guitar, and there's no 
+            better place to sell yours or find that new axe that just feels... right. Take a look, you know you want to.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5">
+      <div class="container">
+  
+        <div class="pb-3 h5">All Products</div>
+        <div class="row row-cols-sm-3 row-cols-md-4 g-3">
+  
+          {% for product in products %}
+  
+          <div class="col" style="">
+            <div class="card shadow-sm h-100" style="max-width: 200px;">
+              <img class="img-fluid" style="max-width: 800px; max-height: 240px;" alt="Responsive image" src="{{ product.image.url }}">
+              <div class="card-body">
+                <p class="card-text">
+                  <span>${{ product.price }}</span>
+                </p>
+                <p class="card-text">
+                  <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+  
+          {% endfor %}
+  
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  {% endblock %}
+
+ 

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+    {% if searched %}
+    
+        <div class="h3">Showing results for: {{ searched }}</div>
+        <br>
+        {% for product in products %}
+        <div class="col" style="">
+            <div class="card shadow-sm h-100" style="max-width: 200px;">
+              <img class="img-fluid" style="max-width: 200px; max-height: 200px;" alt="Responsive image" src="{{ product.image.url }}">
+              <div class="card-body">
+                <p class="card-text">
+                  <span>${{ product.price }}</span>
+                </p>
+                <p class="card-text">
+                  <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+    {% else %}    
+
+        <div class="h3">Hey! You forgot to search!</div>
+    
+    {% endif %}
+
+
+
+</div>
+
+
+
+
+{% endblock %}
